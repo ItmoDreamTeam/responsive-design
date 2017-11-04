@@ -3,11 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Picture Generator</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+    </style>
 </head>
-<body>
+<body style="text-align: center">
 
-<!--because of placeimg.com-->
-<div>You gotta disable CORS to see this working</div>
+<button style="margin: 10px" onclick="generate()">Generate</button>
+<br/>
+
+<canvas id="canvas"></canvas>
 
 <script src="picture_generator.js"></script>
 <script src="quote_generator.js"></script>

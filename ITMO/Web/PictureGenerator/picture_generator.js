@@ -1,16 +1,18 @@
-const pictureUrl = "https://placeimg.com/640/480/any";
+function getPictureURL(width, height) {
+    return "http://lorempixel.com/" + width + "/" + height;
+}
 
-function getPicture(onPicReceived) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", pictureUrl);
-    xhr.onreadystatechange = function () {
-        if (this.readyState === 4) {
-            if (this.status === 200) {
-                onPicReceived(this.responseText);
-            } else {
-                console.log("failed to get picture, status = " + this.status);
-            }
-        }
+function generate() {
+    var picture = new Image();
+    picture.src = getPictureURL(picWidth, picHeight);
+    picture.onload = function () {
+        ctx.drawImage(picture, 0, 0);
+        getQuote(onQuoteReceived);
     };
-    xhr.send();
+}
+
+function onQuoteReceived(quote) {
+    ctx.font = "24pt Calibri";
+    ctx.fillStyle = "red";
+    ctx.fillText(quote.quote, 0, picHeight * 0.9);
 }
