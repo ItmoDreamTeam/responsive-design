@@ -1,15 +1,28 @@
-function postToVK() {
-    //var token = vkGetToken();
-    var token = "";
-    vkGetUploadUrl(token);
+var accessGrantedListenerId;
+
+function vkPost() {
+    var token = window.localStorage.getItem(VK_API_TOKEN);
+    if (token === null) {
+        vkRequestAccess();
+        clearInterval(accessGrantedListenerId);
+        accessGrantedListenerId = setInterval(vkAccessGrantedListener, 1000);
+    } else {
+        vkGetUploadUrl(token);
+    }
 }
 
-function checkIfRedirected() {
-    //var url = window.location.href;
-    var url_string = "http://www.example.com/t.html?a=1&b=3&c=m2-m3-m4-m5"; //window.location.href
-    var url = new URL(url_string);
-    var c = url.searchParams.get("c");
-    console.log(c);
+function vkRequestAccess() {
+    const authUrl = "https://oauth.vk.com/authorize?client_id=" + VK_APP_ID + "&display=popup&" +
+        "redirect_uri=" + REDIRECT_URL + "&scope=wall,photos&response_type=token";
+    window.open(authUrl);
+}
+
+function vkAccessGrantedListener() {
+    if (window.localStorage.getItem(DO_POST) === "true") {
+        clearInterval(accessGrantedListenerId);
+        window.localStorage.setItem(DO_POST, false);
+        vkGetUploadUrl(window.localStorage.getItem(VK_API_TOKEN));
+    }
 }
 
 function vkRequestUrl(method, params, token) {
@@ -25,20 +38,9 @@ function vkRequestUrl(method, params, token) {
     return url;
 }
 
-function vkGetToken() {
-    // const authUrl = "https://oauth.vk.com/authorize?client_id=6247308&display=popup&" +
-    //     "redirect_uri=https://oauth.vk.com/blank.html&scope=wall,photos&response_type=token";
-    const authUrl = "https://oauth.vk.com/authorize?client_id=6247308&display=popup&" +
-        "redirect_uri=http://localhost:63343/Web/ITMO/Web/PictureGenerator/index.html&scope=wall,photos&response_type=token";
-    //window.open(authUrl);
-    window.location.href = authUrl;
-    console.log(window.location.href);
-    //return "d313dd99fd90a2c897fef65609194762a73c3c6d6acd457b26b18365c133ef44d2e99a68d4e97c08a319c";
-}
-
 function vkGetUploadUrl(token) {
     $.ajax({
-        url: vkRequestUrl("photos.getWallUploadServer", null, null),
+        url: vkRequestUrl("photos.getWallUploadServer", null, token),
         method: "GET",
         success: function (response) {
             console.log(response);
@@ -95,8 +97,10 @@ function vkPostPicture(ownerId, picId, token) {
     $.ajax({
         url: vkRequestUrl("wall.post", "owner_id=" + ownerId + "&attachments=" + picId, token),
         method: "POST",
-        success: function () {
+        success: function (response) {
             console.log("PICTURE POSTED");
+            console.log(response);
+            alert("Successfully posted");
         },
         error: function () {
             console.log("failed to post photo");

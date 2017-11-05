@@ -1,8 +1,4 @@
-function rootApiUrl() {
-    return "http://46.101.92.178:8080";
-}
-
-function upload() {
+function fsUpload() {
     var username = "AwesomePictures";
     var password = "123456";
 
@@ -10,7 +6,7 @@ function upload() {
     formData.append("file", fileToUpload.files[0]);
 
     $.ajax({
-        url: rootApiUrl() + "/user/" + username + "/file",
+        url: FS_ROOT_URL + "/user/" + username + "/file",
         method: "POST",
         beforeSend: function (xhr) {
             xhr.setRequestHeader("Authorization", "Basic " + btoa(username + ":" + password));
@@ -25,9 +21,9 @@ function upload() {
     });
 }
 
-function createUser(username, password) {
+function fsCreateUser(username, password) {
     $.ajax({
-        url: rootApiUrl() + "/signup?username=" + username + "&password=" + password,
+        url: FS_ROOT_URL + "/signup?username=" + username + "&password=" + password,
         method: "POST",
         success: function (response) {
             console.log("User created. " + response);

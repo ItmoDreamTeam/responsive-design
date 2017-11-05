@@ -10,17 +10,17 @@
 
 <div id="control-panel">
     <div class="control-panel-element">
-        <button onclick="generate()">Generate Picture</button>
+        <button onclick="generatePicture()">Generate Picture</button>
     </div>
     <div class="control-panel-element">
-        <button onclick="postToVK()">Post Picture to VK</button>
+        <button onclick="vkPost()">Post Picture to VK</button>
     </div>
     <div class="control-panel-element">
         <div style="margin-bottom: 10px">
             <input id="fileToUpload" type="file" style="border: solid lightgrey 1px">
         </div>
         <div>
-            <button onclick="upload()">Upload File</button>
+            <button onclick="fsUpload()">Upload File</button>
         </div>
     </div>
 </div>
@@ -29,10 +29,11 @@
     <canvas id="canvas"></canvas>
 </div>
 
-<script src="quote_generator.js"></script>
-<script src="picture_generator.js"></script>
-<script src="vk_poster.js"></script>
-<script src="picture_uploader.js"></script>
-<script src="script.js"></script>
+<script src="script/constants.js"></script>
+<script src="script/quote_generator.js"></script>
+<script src="script/picture_generator.js"></script>
+<script src="script/vk_poster.js"></script>
+<script src="script/fs_manager.js"></script>
+<script src="script/main.js"></script>
 </body>
 </html>

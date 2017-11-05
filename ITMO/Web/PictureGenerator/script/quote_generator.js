@@ -1,21 +1,10 @@
-function quoteUrl() {
-    return "https://andruxnet-random-famous-quotes.p.mashape.com";
-}
-
-function quoteApiKey() {
-    return "CdbBmWOrBfmshc7t9INffynYmXwNp1JFGbpjsny0dUKurJRhrP";
-}
-
-function Quote(quote, author, category) {
-    this.quote = quote;
-    this.author = author;
-    this.category = category;
-}
+const QUOTE_URL = "https://andruxnet-random-famous-quotes.p.mashape.com";
+const QUOTE_API_KEY = "CdbBmWOrBfmshc7t9INffynYmXwNp1JFGbpjsny0dUKurJRhrP";
 
 function getQuote(onQuoteReceived) {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", quoteUrl());
-    xhr.setRequestHeader("X-Mashape-Key", quoteApiKey());
+    xhr.open("GET", QUOTE_URL);
+    xhr.setRequestHeader("X-Mashape-Key", QUOTE_API_KEY);
     xhr.onreadystatechange = function () {
         if (this.readyState === 4) {
             if (this.status === 200) {
