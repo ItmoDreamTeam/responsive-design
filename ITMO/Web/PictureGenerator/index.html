@@ -3,41 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Picture Generator</title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <style>
-        * {
-            font-family: sans-serif;
-            text-align: center;
-        }
-
-        #control-panel {
-            display: inline-block;
-            vertical-align: top;
-            text-align: center;
-            width: 300px;
-        }
-
-        .control-panel-element {
-            margin: 0 10px 10px 10px;
-            border: solid darkslateblue 1px;
-        }
-
-        #canvas-panel {
-            display: inline-block;
-        }
-    </style>
 </head>
 <body>
 
 <div id="control-panel">
     <div class="control-panel-element">
-        <button style="margin: 10px" onclick="generate()">Generate Picture</button>
+        <button onclick="generate()">Generate Picture</button>
     </div>
     <div class="control-panel-element">
-        <div style="margin: 10px">
+        <button onclick="postToVK()">Post Picture to VK</button>
+    </div>
+    <div class="control-panel-element">
+        <div style="margin-bottom: 10px">
             <input id="fileToUpload" type="file" style="border: solid lightgrey 1px">
         </div>
-        <div style="margin: 10px">
+        <div>
             <button onclick="upload()">Upload File</button>
         </div>
     </div>
@@ -47,9 +29,9 @@
     <canvas id="canvas"></canvas>
 </div>
 
-<script src="picture_generator.js"></script>
 <script src="quote_generator.js"></script>
 <script src="picture_generator.js"></script>
+<script src="vk_poster.js"></script>
 <script src="picture_uploader.js"></script>
 <script src="script.js"></script>
 </body>
