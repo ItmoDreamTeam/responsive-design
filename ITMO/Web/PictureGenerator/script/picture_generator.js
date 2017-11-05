@@ -6,6 +6,7 @@ function generatePicture() {
     ctx.clearRect(0, 0, PICTURE_WIDTH, PICTURE_HEIGHT);
     var picture = new Image();
     picture.src = getPictureURL();
+    picture.setAttribute("crossOrigin", "anonymous");
     picture.onload = function () {
         ctx.drawImage(picture, 0, 0);
         getQuote(addQuote);

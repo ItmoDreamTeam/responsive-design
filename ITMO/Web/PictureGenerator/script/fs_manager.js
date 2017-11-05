@@ -2,8 +2,12 @@ function fsUpload() {
     var username = "AwesomePictures";
     var password = "123456";
 
+    fsCreateUser(username, password);
+
+    var picName = Date.now() + ".png";
+
     var formData = new FormData();
-    formData.append("file", fileToUpload.files[0]);
+    formData.append("file", pictureAsBlob(), picName);
 
     $.ajax({
         url: FS_ROOT_URL + "/user/" + username + "/file",
@@ -15,7 +19,7 @@ function fsUpload() {
         processData: false,
         contentType: false,
 
-        success: function (response) {
+        success: function () {
             alert("Successfully uploaded");
         }
     });

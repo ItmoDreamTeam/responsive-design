@@ -19,7 +19,7 @@ function vkUploadPicture(uploadUrl) {
     console.log("uploading picture");
 
     var formData = new FormData();
-    formData.append("photo", fileToUpload.files[0]);
+    formData.append("photo", pictureAsBlob(), ".png");
 
     $.ajax({
         url: uploadUrl,
