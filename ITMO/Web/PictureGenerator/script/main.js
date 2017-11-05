@@ -1,3 +1,5 @@
+VK.init({apiId: VK_APP_ID});
+
 var fileToUpload = document.getElementById("fileToUpload");
 
 var canvas = document.getElementById("canvas");
