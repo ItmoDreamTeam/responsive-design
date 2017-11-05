@@ -7,19 +7,45 @@
     <style>
         * {
             font-family: sans-serif;
+            text-align: center;
+        }
+
+        #control-panel {
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            width: 300px;
+        }
+
+        .control-panel-element {
+            margin: 0 10px 10px 10px;
+            border: solid darkslateblue 1px;
+        }
+
+        #canvas-panel {
+            display: inline-block;
         }
     </style>
 </head>
-<body style="text-align: center">
+<body>
 
-<input id="fileToUpload" type="file">
-<button style="margin: 10px" onclick="upload()">Upload File</button>
-<br/>
+<div id="control-panel">
+    <div class="control-panel-element">
+        <button style="margin: 10px" onclick="generate()">Generate Picture</button>
+    </div>
+    <div class="control-panel-element">
+        <div style="margin: 10px">
+            <input id="fileToUpload" type="file" style="border: solid lightgrey 1px">
+        </div>
+        <div style="margin: 10px">
+            <button onclick="upload()">Upload File</button>
+        </div>
+    </div>
+</div>
 
-<button style="margin: 10px" onclick="generate()">Generate</button>
-<br/>
-
-<canvas id="canvas"></canvas>
+<div id="canvas-panel">
+    <canvas id="canvas"></canvas>
+</div>
 
 <script src="picture_generator.js"></script>
 <script src="quote_generator.js"></script>
