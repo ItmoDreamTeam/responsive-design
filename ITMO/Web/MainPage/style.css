@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    text-align: center;
+    font-family: sans-serif;
+}
+
+.header1 {
+    font-size: 16pt;
+}
+
+.header2 {
+    text-align: left;
+    font-size: 14pt;
+}
+
+.header3 {
+    font-size: 12pt;
+}
+
+.header4 {
+    color: blue;
+    font-size: 10pt;
+}
+
+/*HEADER*/
+#header {
+    background-color: #24292e;
+    color: white;
+}
+
+.header-item {
+    margin: 3px 20px 3px 20px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#logo {
+    border-radius: 30px;
+    height: 50px;
+    width: 50px;
+}
+
+/*CENTER*/
+#center {
+    margin: 30px 0 200px 0;
+}
+
+/*SIDE PANEL*/
+#side-panel {
+    text-align: left;
+    display: inline-block;
+    vertical-align: top;
+    width: 250px;
+    margin: 0 20px 30px 10px;
+}
+
+#avatar {
+    height: 100%;
+    width: 100%;
+}
+
+#name {
+    color: green;
+    font-weight: bold;
+    font-size: 32pt;
+}
+
+/*MAIN PANEL*/
+#main-space {
+    display: inline-block;
+    margin: 0 10px 0 10px;
+}
+
+.main-space-item {
+    margin-top: 30px;
+}
+
+#menu {
+    text-align: left;
+}
+
+.menu-item {
+    display: inline-block;
+    margin: 3px 10px 3px 10px;
+}
+
+.menu-item:hover {
+    color: gray;
+}
+
+#repositories {
+    text-align: left;
+}
+
+.repository {
+    width: 300px;
+    margin: 5px;
+    padding: 25px 0 25px 10px;
+    border: solid lightgrey 1px;
+    display: inline-block;
+    text-align: left;
+}
+
+.repository:hover {
+    text-decoration: underline;
+}
+
+.contribution {
+    padding: 20px;
+}
+
+#show-more {
+    color: red;
+    border: solid blue 1px;
+    padding: 20px;
+}
+
+#show-more:hover {
+    background-color: lightgrey;
+}
+
+@media (max-width: 1000px) {
+    #name {
+        color: yellow;
+    }
+
+    #header > .header-item {
+        display: block;
+    }
+
+    #menu {
+        text-align: center;
+    }
+
+    .menu-item {
+        display: block;
+    }
+
+    .repository {
+        display: block;
+        width: auto;
+    }
+}
+
+@media (max-width: 710px) {
+    #name {
+        color: purple;
+    }
+
+    .header-item {
+        display: block;
+    }
+
+    #main-space {
+        display: block;
+    }
+
+    #center {
+        margin-bottom: 10px;
+    }
+
+    .contribution {
+        padding: 20px 0 20px 0;
+    }
+}
