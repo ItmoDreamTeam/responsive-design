@@ -32,6 +32,7 @@
     display: inline-block;
     vertical-align: top;
     width: 250px;
+    margin-bottom: 30px;
 }
 
 #avatar {
@@ -50,9 +51,15 @@
     text-align: left;
     display: inline-block;
     vertical-align: top;
+    margin-left: 20px;
+}
+
+#menu {
+    text-align: center;
 }
 
 .menu-item {
+    display: inline-block;
     margin: 0 10px 0 10px;
 }
 
