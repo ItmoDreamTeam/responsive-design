@@ -118,3 +118,48 @@ body {
 #show-more:hover {
     background-color: lightgrey;
 }
+
+@media (max-width: 1000px) {
+    #name {
+        color: yellow;
+    }
+
+    #header > .header-item {
+        display: block;
+    }
+
+    #menu {
+        text-align: center;
+    }
+
+    .menu-item {
+        display: block;
+    }
+
+    .repository {
+        display: block;
+        width: auto;
+    }
+}
+
+@media (max-width: 710px) {
+    #name {
+        color: purple;
+    }
+
+    .header-item {
+        display: block;
+    }
+
+    #main-space {
+        display: block;
+    }
+
+    #center {
+        margin-bottom: 10px;
+    }
+
+    .contribution {
+        padding: 20px 0 20px 0;
+    }
+}
